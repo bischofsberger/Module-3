@@ -1,0 +1,112 @@
+---
+title: "Module 3"
+author: "Imerio Bischofsberger"
+date: "6/6/2023"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load packages
+
+```{r, message=FALSE}
+library(tidyverse)
+library(magrittr)
+library(ggthemes)
+library(ggrepel)
+library(janitor)
+library(knitr)
+library(Hmisc)
+library(palmerpenguins)
+library(ggpubr)
+library(ggplot2)
+library(broom)
+library(plotly)
+library(psych)
+```
+
+# Question 1
+
+```{r}
+
+data <- read.csv("your_data_file.csv")  # Replace "your_data_file.csv" with the actual filename
+
+# factor analysis with 4 factors using principal component analysis (PCA) extraction and varimax rotation
+factor_analysis <- fa(data, nfactors = 4, rotate = "varimax", fm = "pa")
+
+# interpretation of factors
+interpretation <- print(factor_analysis, cut = 0.3, sort = TRUE)  # Print factor analysis results, specifying a loading cutoff of 0.3
+
+```
+
+# Question 2
+
+```{r}
+
+
+```
+
+# Question 3
+
+```{r}
+
+# Create a sample dataset
+data <- data.frame(
+  V1 = c(0.8, 0.7, 0.9),
+  V2 = c(0.6, 0.5, 0.7),
+  V3 = c(0.3, 0.4, 0.2),
+  V4 = c(0.1, 0.2, 0.3)
+)
+
+# Perform factor analysis
+factor_analysis <- fa(data, nfactors = 2)
+
+# Extract factor loadings
+factor_loadings <- factor_analysis$loadings
+
+# Print the factor loadings
+print(factor_loadings)
+
+```
+
+# Question 4
+
+```{r}
+
+
+
+```
+
+# Question 5
+
+```{r}
+
+# Create a sample dataset with missing values
+data <- data.frame(
+  V1 = c(0.8, 0.7, NA, 0.9),
+  V2 = c(0.6, 0.5, 0.4, NA),
+  V3 = c(0.3, 0.4, 0.2, NA),
+  V4 = c(0.1, NA, 0.3, 0.2)
+)
+
+# Perform factor analysis
+factor_analysis <- fa(data, nfactors = 2)
+
+# Impute missing values using factor scores
+imputed_data <- faScores(data, factor_analysis)
+
+# Print the imputed data
+print(imputed_data)
+
+```
+
+# Question 6
+
+```{r}
+
+
+
+```
+
